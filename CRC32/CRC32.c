@@ -56,7 +56,7 @@ static const unsigned int CRC32_table[] = {
    Can start with CRC32 of previous data block by initial_crc32 that must be 0
    at the first function's call.
 
-   Polinom: 0x04C11DB7
+   Polynom: 0x04C11DB7
    Initial value: 0xFFFFFFFF
    Final XOR: 0xFFFFFFFF
 
