@@ -1,0 +1,22 @@
+---
+:source:
+  :path: test
+  :file: test_CRC32.c
+:successes:
+- :test: test_GetCRC32_with_one_byte
+  :line: 51
+  :message: ''
+- :test: test_GetCRC32_with_one_string
+  :line: 58
+  :message: ''
+- :test: test_GetCRC32_with_two_strings
+  :line: 69
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout: []
