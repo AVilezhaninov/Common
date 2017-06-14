@@ -3,7 +3,7 @@
 
 
 /* Private constants ---------------------------------------------------------*/
-static const unsigned int CRC32_table[] = {
+static const crc32_t CRC32_table[] = {
     0x00000000, 0x77073096, 0xEE0E612C, 0x990951BA, 0x076DC419, 0x706AF48F,
     0xE963A535, 0x9E6495A3, 0x0EDB8832, 0x79DCB8A4, 0xE0D5E91E, 0x97D2D988,
     0x09B64C2B, 0x7EB17CBD, 0xE7B82D07, 0x90BF1D91, 0x1DB71064, 0x6AB020F2,
@@ -53,22 +53,22 @@ static const unsigned int CRC32_table[] = {
 /* Exported functions --------------------------------------------------------*/
 /**
  * GetCRC32() - return CRC32 of data block.
-   Can start with CRC32 of previous data block by initial_crc32 that must be 0
-   at the first function's call.
-
-   Polynom: 0x04C11DB7
-   Initial value: 0xFFFFFFFF
-   Final XOR: 0xFFFFFFFF
-
+ * Can start with CRC32 of previous data block by initial_crc32 that must be 0
+ * at the first function's call.
+ *
+ * Polynomial: 0x04C11DB7
+ * Initial value: 0xFFFFFFFF
+ * Final XOR: 0xFFFFFFFF
+ *
  * @param  initial_crc32 initial CRC32 value, must be 0 on the first call
  * @param  data          pointer to data buffer
- * @param  len           lenght of data buffer
+ * @param  len           length of data buffer
  * @return               CRC32 value
  */
-unsigned int GetCRC32(const unsigned int initial_crc32,
-                      const unsigned char *const data,
-                      const unsigned int len) {
-    unsigned int crc32 = initial_crc32 ^ 0xFFFFFFFFu;
+crc32_t GetCRC32(const crc32_t initial_crc32,
+                 const unsigned char *const data,
+                 const unsigned int len) {
+    crc32_t crc32 = initial_crc32 ^ 0xFFFFFFFFu;
 
     for (unsigned int i = 0u; i < len; ++i) {
         crc32 = (crc32 >> 8u) ^ CRC32_table[(crc32 ^ data[i]) & 0xFFu];
